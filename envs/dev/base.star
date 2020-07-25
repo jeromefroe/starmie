@@ -1,5 +1,8 @@
+load("lib/deep_merge.star", "deep_merge")
+load("envs/base.star", parent="config")
+
 # In the "dev" cluster, we only have 1 replica per deployment.
-output = {
+overrides = {
     "foo": {
         "replicas": 1,
     },
@@ -7,3 +10,5 @@ output = {
         "replicas": 1,
     },
 }
+
+config = deep_merge(parent, overrides)

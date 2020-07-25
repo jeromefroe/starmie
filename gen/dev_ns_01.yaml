@@ -1,0 +1,8 @@
+foo:
+  image:
+    tag: v0.2.0-rc.0
+  replicas: 1
+bar:
+  image:
+    tag: v0.3.0-rc.0
+  replicas: 1

@@ -1,8 +1,9 @@
 load("lib/deep_merge.star", "deep_merge")
-load("mixins/disable_bar.star", disable_bar="output")
+load("mixins/disable_bar.star", "disable_bar")
+load("envs/dev/base.star", parent="config")
 
 # We've deployed a second release candidate for the "foo" service and disabled the "bar" service.
-cfg = {
+overrides = {
     "foo": {
         "image": {
             "tag": "v0.2.0-rc.1",
@@ -10,4 +11,4 @@ cfg = {
     },
 }
 
-output = deep_merge(cfg, disable_bar)
+config = deep_merge(parent, overrides, disable_bar)

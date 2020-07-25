@@ -1,5 +1,5 @@
 # This is the base module and serves as the default for all environments.
-output = {
+config = {
     # Configuration for the service "foo".
     "foo": {
         "image": {

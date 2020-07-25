@@ -1,4 +1,4 @@
 # This mixin disables the bar service.
-output = {
+disable_bar = {
     "bar": None,
 }
