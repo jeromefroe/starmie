@@ -80,14 +80,14 @@ we keep them in the `lib` directory.
 ## Example Environment
 
 To see how we use inheritance and composition to simplify our configuration in practice, we'll take
-a look at the configuration for the `(dev, ns_02)` environment.:
+a look at the configuration for the `(dev, ns_02)` environment:
 
 ```starlark
 load("lib/deep_merge.star", "deep_merge")
 load("mixins/disable_bar.star", "disable_bar")
 load("envs/dev/dev.star", parent="config")
 
-# We've deployed a second release candidate for the "foo" service and disabled the "bar" service.
+# We've deployed a second release candidate for the "foo" service.
 overrides = {
     "foo": {
         "image": {
@@ -114,7 +114,7 @@ Next we define the environment's overrides. In this example, we're deploying a r
 for the "foo" service.
 
 ```starlark
-# We've deployed a second release candidate for the "foo" service and disabled the "bar" service.
+# We've deployed a second release candidate for the "foo" service.
 overrides = {
     "foo": {
         "image": {
