@@ -100,9 +100,9 @@ config = deep_merge(parent, overrides, disable_bar)
 ```
 
 We begin by loading the objects that we'll need from other modules. First we load the `deep_merge`
-function from the common library since we'll it later on to merge the environment's parent's
-configuration and its overrides. Next, we load the `disable_bar` mixin that disables the bar
-service for an environment. And, lastly, we load the environment's parent's configuration.
+function from the common library since we'll need it later on to merge the evnironment's parent
+with its overrides. In the next line, we load the `disable_bar` mixin that disables the bar service
+for an environment. And, lastly, we load the environment's parent.
 
 ```starlark
 load("lib/deep_merge.star", "deep_merge")
@@ -124,12 +124,11 @@ overrides = {
 }
 ```
 
-Lastly, we merge the environment's parent's configuration, its overrides, and the mixin to disable
-the bar service to create the configuration for the environment:
+Finally, we merge the environment's parent's configuration, its overrides, and the mixin to disable
+the bar service, to create the configuration for the environment:
 
 ```starlark
-Next we define the environment's overrides. In this example, we're deploying a release candidate
-for the "foo" service.
+config = deep_merge(parent, overrides, disable_bar)
 ```
 
 [starlark]: https://github.com/google/starlark-go
