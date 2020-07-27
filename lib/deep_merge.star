@@ -1,6 +1,6 @@
 def deep_merge(base, *args):
     '''
-    deep_merge performs a deep merge of dictionaries. Values in the righter dictionaries take
+    deep_merge performs a deep merge of dictionaries. Values in the right most dictionaries take
     precedence over those to the left of them.
     '''
 

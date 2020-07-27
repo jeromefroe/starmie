@@ -1,5 +1,5 @@
 load("lib/deep_merge.star", "deep_merge")
-load("envs/base.star", parent="config")
+load("envs/global.star", parent="config")
 
 # In the "dev" cluster, we only have 1 replica per deployment.
 overrides = {

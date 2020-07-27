@@ -1,6 +1,6 @@
 load("lib/deep_merge.star", "deep_merge")
 load("mixins/disable_bar.star", "disable_bar")
-load("envs/dev/base.star", parent="config")
+load("envs/dev/dev.star", parent="config")
 
 # We've deployed a second release candidate for the "foo" service and disabled the "bar" service.
 overrides = {
