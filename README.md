@@ -54,15 +54,20 @@ hierarchy of the environments:
 
 ```text
 envs
-├── global.star      <--- global configuration
+├── module.star           <--- global configuration
 ├── dev
-│   ├── dev.star     <--- cluster configuration
-│   ├── ns_01.star   <--- namespace configuration
-│   └── ns_02.star   <--- namespace configuration
+│   ├── module.star       <--- cluster configuration
+│   ├── ns_01
+│   │   └── module.star   <--- namespace configuration
+│   └── ns_01
+│       └── module.star
 └── prod
-    ├── ns_01.star
-    ├── ns_02.star
-    └── prod.star
+    ├── module.star
+    ├── ns_01
+    │   └── module.star
+    └── ns_02
+        └── module.star
+
 ```
 
 The second feature of the Starlark files that allows us to reduce duplication is composition.
@@ -85,7 +90,7 @@ a look at the configuration for the `(dev, ns_02)` environment:
 ```starlark
 load("lib/deep_merge.star", "deep_merge")
 load("mixins/disable_bar.star", "disable_bar")
-load("envs/dev/dev.star", parent="config")
+load("envs/dev/module.star", parent="config")
 
 # We've deployed a second release candidate for the "foo" service.
 overrides = {
@@ -107,7 +112,7 @@ for an environment. And, lastly, we load the environment's parent.
 ```starlark
 load("lib/deep_merge.star", "deep_merge")
 load("mixins/disable_bar.star", "disable_bar")
-load("envs/dev/dev.star", parent="config")
+load("envs/dev/module.star", parent="config")
 ```
 
 Next we define the environment's overrides. In this example, we're deploying a release candidate

@@ -1,5 +1,5 @@
 load("lib/deep_merge.star", "deep_merge")
-load("envs/dev/dev.star", parent="config")
+load("envs/dev/module.star", parent="config")
 
 # Two release candidates have been deployed.
 overrides = {
@@ -16,3 +16,5 @@ overrides = {
 }
 
 config = deep_merge(parent, overrides)
+
+print(config)

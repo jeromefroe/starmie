@@ -1,6 +1,6 @@
 load("lib/deep_merge.star", "deep_merge")
 load("mixins/disable_bar.star", "disable_bar")
-load("envs/dev/dev.star", parent="config")
+load("envs/dev/module.star", parent="config")
 
 # We've deployed a second release candidate for the "foo" service.
 overrides = {
@@ -12,3 +12,5 @@ overrides = {
 }
 
 config = deep_merge(parent, overrides, disable_bar)
+
+print(config)
